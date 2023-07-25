@@ -28,6 +28,13 @@ export const Navbar = () => {
 				<div>
 					< Filters />
 				</div>
+				<div>
+					<Link to={"/compare"}>
+						<button>
+							Compare added cars
+						</button>
+					</Link>
+				</div>
 				<div>	
 					<Link to={"/signup"}>
 					<button className="btn btn-primary">

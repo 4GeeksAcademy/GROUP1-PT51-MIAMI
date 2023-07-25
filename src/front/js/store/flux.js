@@ -31,7 +31,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				year: ""
 			}],
 			singleCar: [],
-			errorMessage: null
+			errorMessage: null,
+			compareCars: []
 		},
 		actions: {
 			getAllUsers: () => {
@@ -112,6 +113,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  console.log("Error during login", error);
 				  throw error;
 				}
+			  },
+			  addCarToCompare: (car) => {
+				const [isLimitReached, setIsLimitReached] = useState(false);
+				let compareCars = getStore().compareCars
+				if (compareCars.length > 3) {
+					setIsLimitReached(true)
+					return;
+				}
+				else
+				compareCars.push(car)
+				setStore({compareCars : compareCars})
+				console.log("compareCars value: ",compareCars)
+			  },
+
+			  deleteCarToCompare: (car) => {
+				let compareCars = getStore().compareCars
+				let deletedCarComparison = compareCars.filter((item) => {
+					return item.id != car.id
+				})
+				setStore({compareCars : deletedCarComparison})
 			  }
 }
 }

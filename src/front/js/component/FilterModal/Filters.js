@@ -91,7 +91,7 @@ const handleApplyFilters = () => {
                     if (index === 0 || carType.car_type !== cars[index - 1].car_type) {                 
                       return (
                             <div>
-                              <label key={index} className='parametersContainer'>
+                              <label key={index} className='parametersContainer carFormatted'>
                                 <input type="checkbox"
                                   defaultChecked={checked}
                                   checked={selectedCarTypes.includes(carType.car_type)}
@@ -116,7 +116,7 @@ const handleApplyFilters = () => {
                     if (index === 0 || carMake.brand !== cars[index - 1].brand) {                 
                       return (
                           <div>
-                            <label key={index} className='parametersContainer'>
+                            <label key={index} className='parametersContainer carFormatted'>
                                 <input type="checkbox"
                                   defaultChecked={checked}
                                   checked={selectedCarMakes.includes(carMake.brand)}
@@ -139,7 +139,7 @@ const handleApplyFilters = () => {
                     if (index === 0 || carEngine.engine !== cars[index - 1].engine) {                 
                       return (
                           <div>
-                            <label key={index} className='parametersContainer'>
+                            <label key={index} className='parametersContainer carFormatted'>
                                 <input type="checkbox"
                                   defaultChecked={checked}
                                   checked={selectedCarEngines.includes(carEngine.engine)}
@@ -162,7 +162,7 @@ const handleApplyFilters = () => {
                     if (index === 0 || carTransmission.transmission !== cars[index - 1].transmission) {                 
                       return (
                           <div>
-                            <label key={index} className='parametersContainer'>
+                            <label key={index} className='parametersContainer carFormatted'>
                                 <input type="checkbox"
                                   defaultChecked={checked}
                                   checked={selectedCarTransmissions.includes(carTransmission.transmission)}

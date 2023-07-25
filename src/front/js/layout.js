@@ -12,6 +12,7 @@ import CreateAccount from "./pages/create-account";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import CarComparison from "./pages/carcomparison";
 
 
 //create your first component
@@ -34,6 +35,7 @@ const Layout = () => {
                         <Route element={<UserView />} path="/usermain"/>
                         <Route element={<AboutCar />} path="/about/:theid"/>
                         <Route element={<CarViews />} path="/catalog" />
+                        <Route element={<CarComparison/>} path="/compare"/>
                         <Route element={<CreateAccount />} path="/signup" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
