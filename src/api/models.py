@@ -56,6 +56,8 @@ class Car(db.Model):
     car_type = db.Column(db.String(30), nullable=False)
     engine = db.Column(db.String(100), nullable=True)
     transmission = db.Column(db.String(100), nullable=True)
+    images = db.relationship('Car_image')
+
 
     def __repr__(self):
         return f'<Car {self.id}>'
@@ -69,6 +71,26 @@ class Car(db.Model):
             "car_type": self.car_type,
             "engine": self.engine,
             "transmission": self.transmission,
+            "images": list(map(lambda x: x.serialize(), self.images))
+
+        }
+
+class Car_image(db.Model):
+    __tablename__ = 'car_image'
+    id = db.Column(db.Integer, primary_key=True)
+    image_url = db.Column(db.String(250), nullable=False)
+    car_id = db.Column(db.Integer, ForeignKey('car.id'), nullable=False)
+    car = db.relationship('Car', backref='car_image_url', foreign_keys=[car_id], overlaps='images' ) 
+
+
+    def __repr__(self):
+        return f'<Image {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "image_url": self.image_url,
+
         }
 
 
