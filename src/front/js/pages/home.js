@@ -16,8 +16,6 @@ export const Home = () => {
 			<div className="sight-info">
 				<p>cars on sight</p>
 			</div>
-			{/* <img src= "https://images.pexels.com/photos/2036544/pexels-photo-2036544.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="car"/>
-			<h1>HOME PAGE NOTHING YET :( </h1> */}
 		</div>
 	);
 };
