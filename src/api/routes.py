@@ -164,21 +164,21 @@ def delete_saved():
     return jsonify({"Message": "Car successfully removed from saved list"}), 200
 
 
-# REGISTER ENDPOINT
-@api.route('/register', methods=['POST'])
-def create_user():
-    user_email= request.json.get('email', None)
-    user_first_name = request.json.get('first_name', None)
-    user_password = request.json.get('password', None)
-    user_phone_number = request.json.get('phone_number', None)
+# REGISTER ENDPOINT  
+# @api.route('/register', methods=['POST'])
+# def create_user():
+#     user_email= request.json.get('email', None)
+#     user_first_name = request.json.get('first_name', None)
+#     user_password = request.json.get('password', None)
+#     user_phone_number = request.json.get('phone_number', None)
 
-    active_user = User.query.filter_by(email = user_email).first()
-    if active_user:
-        return jsonify({"Error": "Email already in use, try another one"}), 409
-    new_user = User(email=user_email,first_name=user_first_name,password=user_password,phone_number=user_phone_number)
-    db.session.add(new_user)
-    db.session.commit()
-    return jsonify({"Message": "User successfully created"})
+#     active_user = User.query.filter_by(email = user_email).first()
+#     if active_user:
+#         return jsonify({"Error": "Email already in use, try another one"}), 409
+#     new_user = User(email=user_email,first_name=user_first_name,password=user_password,phone_number=user_phone_number)
+#     db.session.add(new_user)
+#     db.session.commit()
+#     return jsonify({"Message": "User successfully created"})
 
 # Route to create user
 @api.route("/createuser", methods=['POST'])

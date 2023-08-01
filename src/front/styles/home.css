@@ -5,3 +5,32 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+.home-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.background{
+    background-image: url("https://images.pexels.com/photos/2036544/pexels-photo-2036544.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.sight-info{
+    position: absolute;
+    z-index: 10;
+}
+
+.hero{
+    background: rgba(196, 198, 204, 0.3);
+    text-shadow: #474747 3px 5px 2px;
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(11.5px);
+-webkit-backdrop-filter: blur(11.5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}

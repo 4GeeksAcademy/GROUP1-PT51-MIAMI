@@ -6,8 +6,18 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="text-center mt-5">
-			<h1>HOME PAGE NOTHING YET :( </h1>
+		<div className="home-container">
+			<div className="background">
+			</div>
+			<section className="hero text-center text-capitalize position-absolute top-50 start-50 translate-middle text-white" style={{fontSize:48,zIndex:"1000"}}>
+			<h1 style={{fontSize:48,zIndex:"1000"}} >Vehicles that drive the world</h1>
+				<p className="fs-5 py-2 ps-1">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+			</section>
+			<div className="sight-info">
+				<p>cars on sight</p>
+			</div>
+			{/* <img src= "https://images.pexels.com/photos/2036544/pexels-photo-2036544.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="car"/>
+			<h1>HOME PAGE NOTHING YET :( </h1> */}
 		</div>
 	);
 };
