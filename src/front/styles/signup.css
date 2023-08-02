@@ -5,3 +5,51 @@
     one more css for each page that will contain the selected used
     on that page only (the ones not reused in other pages).
 */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .signup-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .signup-form {
+    width: 300px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .signup-button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 40px ;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .signup-button:hover {
+    background-color: #0056b3;
+  }
