@@ -1,0 +1,97 @@
+/* navbar.css
+
+/* Add this to your CSS file */
+/* Navbar side menu styles */
+.navbar {
+    padding: 10px; /* Add some padding to create space between content and navbar edges */
+    color: #000; /* White text color for the navbar */
+  }
+  .offcanvas-end {
+    background-color: #282c34; /* Dark background color */
+    color: #000; /* Black text color */
+  }
+
+.offcanvas-header {
+    background-color: #1a1d23; /* Darker header background color */
+}
+
+.offcanvas-title {
+    color: #fff; /* White text color for offcanvas title */
+}
+
+.btn-close {
+    color: #fff; /* White color for close button */
+}
+
+.offcanvas-body {
+    padding: 10px;
+}
+
+/* Styling for navbar links in the side menu */
+.offcanvas-body .nav-item {
+    margin-bottom: 10px;
+}
+
+.offcanvas-body .nav-link {
+    color: #fff; /* White text color for links */
+}
+
+.offcanvas-body .nav-link:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+/* Styling for buttons in the side menu */
+.offcanvas-body .btn {
+    margin-bottom: 10px;
+}
+
+.offcanvas-body .btn-secondary {
+    background-color: #444f5a; /* Darker background for secondary button */
+}
+
+.offcanvas-body .btn-secondary:hover {
+    background-color: #5a6673; /* Lighter background on hover for secondary button */
+}
+
+.offcanvas-body .btn-success {
+    background-color: #66bb6a; /* Green background for success button */
+}
+
+.offcanvas-body .btn-success:hover {
+    background-color: #4caf50; /* Darker green background on hover for success button */
+}
+
+.dropdown-menu-dark {
+    background-color: #282c34; /* Dark background for dropdown menu */
+}
+
+/* Styling for the car list in the dropdown menu */
+.carFormatted {
+    color: #000; /* White text color for car name */
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Styling for the buttons in the car list */
+.dropdown-menu-dark button {
+    background-color: #5a6673; /* Darker background for buttons in the car list */
+    color: #fff; /* White text color for buttons in the car list */
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* Styling for the "Compare selected saved cars" button */
+.dropdown-menu-dark .btn-success {
+    width: 100%;
+}
+
+/* Additional styling for the compare button */
+.offcanvas-body .btn-compare {
+    background-color: #e53935; /* Red background for compare button */
+}
+
+.offcanvas-body .btn-compare:hover {
+    background-color: #c62828; /* Darker red background on hover for compare button */
+} 

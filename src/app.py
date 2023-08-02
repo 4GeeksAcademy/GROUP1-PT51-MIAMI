@@ -73,6 +73,54 @@ def serve_any_other_file(path):
 
 
 
+# LOGIN ENDPOINT FOR USERS
+@app.route('/login', methods=['POST'])
+def login_user():
+     user_email = request.json.get("email", None)
+     user_password = request.json.get("password", None)
+
+     user = User.query.filter_by(email = user_email, password = user_password).first()
+
+     if user is None:
+          return jsonify({"Error": "Wrong email or password"}), 401
+
+     token = create_access_token(identity=user.id)
+     return jsonify({"Response": "Successfully logged in", "token": token, "email": user.email}), 200
+
+
+# PRIVATE VIEW THAT USERS ARE GOING TO HAVE
+@app.route('/private', methods=['GET'])
+@jwt_required()
+def show_saved_cars():
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        saved_cars = Saved.query.filter_by(user_id=current_user_id).all()
+        response = {
+             'user': user.first_name,
+             'email': user.email,
+             'phone_number': user.phone_number,
+             'saved_cars': [car.serialize() for car in saved_cars]
+        }
+
+        return jsonify(response),200
+
+# ALLOWING USERS TO CREATE A FAVORITE
+@app.route('/add_saved', methods=['POST'])
+@jwt_required()
+def add_favorite():
+    current_user_id = get_jwt_identity()
+
+    user = User.query.get(current_user_id)
+    car_id = request.json.get("car_id")
+
+    car = Car.query.get(car_id)
+    if not car:
+         return jsonify({"Error": "Car does not exist"}), 404
+    saved = Saved(user_id=user.id, car_id=car_id)
+    db.session.add(saved)
+    db.session.commit()
+
+    return jsonify({"Message": "Car successfully saved"})
 # # LOGIN ENDPOINT FOR USERS
 # @app.route('/login', methods=['POST'])
 # def login_user():
@@ -83,7 +131,7 @@ def serve_any_other_file(path):
 
 #      if user is None:
 #           return jsonify({"Error": "Wrong email or password"}), 401
-     
+
 #      token = create_access_token(identity=user.id)
 #      return jsonify({"Response": "Successfully logged in", "token": token, "email": user.email}), 200
 
@@ -109,18 +157,18 @@ def serve_any_other_file(path):
 # @jwt_required()
 # def add_favorite():
 #     current_user_id = get_jwt_identity()
-    
+
 #     user = User.query.get(current_user_id)
 #     car_id = request.json.get("car_id")
 
 #     car = Car.query.get(car_id)
 #     if not car:
 #         return jsonify({"Error": "Car does not exist"}), 404
-    
+
 #     if user.saved:
 #         for saved_car in user.saved:
 #             if saved_car.car_id == car.id:
-#                 return jsonify({"Message": "Car already saved"}), 409    
+#                 return jsonify({"Message": "Car already saved"}), 409
 #     saved = Saved(user_id=user.id, car_id=car_id)
 #     db.session.add(saved)
 #     db.session.commit()

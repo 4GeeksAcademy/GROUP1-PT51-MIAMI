@@ -5,6 +5,10 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Car, Saved
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token, JWTManager
+from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
+import requests
+
 
 
 api = Blueprint('api', __name__)
@@ -73,6 +77,13 @@ def add_car():
              return jsonify({"this is the car's data": car.serialize()}), 200
         else:
             return jsonify({'error': 'Failed to retrieve car information'}), 500
+        
+# ROUTE TO GET SINGLE CAR INFORMATION
+@api.route('/cars/<int:car_id>', methods=['GET'])
+def singleCarInfo(car_id):
+    
+    singleCar = Car.query.get(car_id)
+    return jsonify(singleCar.serialize()), 200
 
 # LOGIN ENDPOINT FOR USERS
 @api.route("/login", methods=["POST"])
@@ -98,10 +109,11 @@ def show_saved_cars():
         user = User.query.get(current_user_id)
         saved_cars = Saved.query.filter_by(user_id=current_user_id).all()
         response = {
+             'id': user.id,
              'user': user.first_name,
              'email': user.email,
              'phone_number': user.phone_number,
-             'saved_cars': [car.serialize() for car in saved_cars]
+             'saved': list(map(lambda x: x.serialize(), saved_cars))
         }
 
         return jsonify(response),200
@@ -126,8 +138,30 @@ def add_favorite():
     saved = Saved(user_id=user.id, car_id=car_id)
     db.session.add(saved)
     db.session.commit()
-
+    print("car ID", car_id)
     return jsonify({"Message": "Car successfully saved"}), 200
+
+# DELETE A FAVORITE
+@api.route('/delete_saved', methods=['DELETE'])
+@jwt_required()
+def delete_saved():
+    current_user_id = get_jwt_identity()
+
+    user = User.query.get(current_user_id)
+    car_id = request.json.get("car_id")
+
+    car = Car.query.get(car_id)
+    if not car:
+        return jsonify({"Error": "Car does not exist"}), 404
+
+    saved_car = Saved.query.filter_by(user_id=user.id, car_id=car.id).first()
+    if not saved_car:
+        return jsonify({"Message": "Car is not saved by the user"}), 404
+
+    db.session.delete(saved_car)
+    db.session.commit()
+
+    return jsonify({"Message": "Car successfully removed from saved list"}), 200
 
 
 # REGISTER ENDPOINT
@@ -145,3 +179,28 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
     return jsonify({"Message": "User successfully created"})
+
+# Route to create user
+@api.route("/createuser", methods=['POST'])
+def add_user():
+     body= request.get_json()
+     if "email" not in body: return jsonify ("mising email"), 400
+
+     user= User.query.filter_by(email=body["email"]).first()
+     if user:
+          return jsonify("user alredy exists"), 409
+     if "firstName" not in body: return jsonify ("mising firstName"), 400
+     if "phoneNumber" not in body: return jsonify ("phoneNumber"), 400
+     if "password" not in body: return jsonify ("password"), 400
+
+     newUser= User(
+          email = body["email"],
+          first_name = body["firstName"],
+          phone_number = body["phoneNumber"],
+          password = generate_password_hash(body["password"])
+     )
+     db.session.add(newUser)
+     db.session.commit()
+     return jsonify("successfully created new user"), 201
+
+

@@ -1,0 +1,72 @@
+.parentDiv {
+    display: flex;
+}
+
+.searchBarContainer {
+    width: 25rem;
+}
+
+.searchBar {
+    padding-left: 0.5rem;
+    width: 80%;
+    background-color: rgb(18,18,18);
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+
+    color: grey;
+}
+
+
+
+.carsDiv {
+    color: lightgray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.carNames {
+    width: 90rem;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.carsDiv:hover {
+    background-color: #333;
+  }
+
+.imagesDiv {
+    display: flex;
+    text-align: center;
+    justify-content: end;
+    margin: auto;
+    margin-right: 3rem;
+}
+
+.carImage {
+    margin-right: 0;
+    display: flex;
+    justify-content: end;
+    height: auto;
+    width: 69%;
+    border-radius: 1rem;
+}
+
+
+
+.custom-dropdown {
+    margin-top: 0.07rem;
+    position:absolute;
+    z-index: 9999;
+    background-color: rgb(18,18,18);
+    width: 18.5%;
+    max-height: 200px;
+    overflow-y: auto;
+    color: lightgray;
+    border-bottom-left-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+
+  }
+  
+
+
