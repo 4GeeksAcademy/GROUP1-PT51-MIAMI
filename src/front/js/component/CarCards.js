@@ -15,25 +15,43 @@ const CarCards = ({cars}) => {
   }
 
   return (
-    <div style={{"display": "flex", "justifyContent": "space-between"}}>
+    <div className="bg bg-secondary" style={{"display": "flex"}}>
     {cars.map((car, index) => {
         return (
-            <div key={index} className="card bg bg-white d-flex">
+            <div key={index} className="card bg bg-dark d-flex rounded-4">
             <img
               src={car.images[0].image_url}
-              className="card-img-top"
+              className="card-img-top rounded-5"
               alt="..."
-              style={{ width: "60%", height: "auto", borderRadius: "5px" }}
+              style={{ width: "100%", height: "auto"}}
             />
             <div className="card-body d-flex">
-                <div>     
-                  <h5 className="card-title carFormatted">Model: {car.car_name}</h5>
-                  <p className="card-text carFormatted">Make: {car.brand}</p>
-                  <p className="card-text carFormatted">Car Type: {car.car_type}</p>
-                  <p className="card-text carFormatted">Engine: {car.engine}</p>
-                  <p className="card-text carFormatted">Transmission: {car.transmission}</p>
-                  <p className="card-text carFormatted">MSRP: {car.price}</p>
-                  <div className="buttonContainer">
+                <div className='w-100'>     
+                  <div className='row justify-content-around border-bottom border-black'>
+                    <h4 className="card-title col" style={{color: "rgb(108,117,125)"}}>Model</h4>
+                    <p className='carFormatted col'>{car.car_name}</p>
+                  </div>               
+                  <div className='row justify-content-around border-bottom border-black'>
+                    <h4 className="card-text col " style={{color: "rgb(108,117,125)"}}>Make</h4>
+                    <p className='carFormatted col'>{car.brand}</p>
+                  </div>            
+                  <div className='row justify-content-around border-bottom border-black'>
+                    <h4 className="card-text col" style={{color: "rgb(108,117,125)"}}>Car Type</h4>
+                    <p className='carFormatted col'>{car.car_type}</p>
+                  </div>               
+                  <div className='row justify-content-around border-bottom border-black'>
+                    <h4 className="card-text col" style={{color: "rgb(108,117,125)"}}>Engine</h4>
+                    <p className='carFormatted col'>{car.engine}</p>
+                  </div>             
+                  <div className='row justify-content-around border-bottom border-black'>
+                    <h4 className="card-text col" style={{color: "rgb(108,117,125)"}}>Transmission</h4>
+                    <p className='carFormatted col'>{car.transmission}utomatic</p>
+                  </div>
+                  <div className='row justify-content-around border-bottom border-black'>
+                    <h4 className="card-text col" style={{color: "rgb(108,117,125)"}}>MSRP</h4>
+                    <p className='carFormatted col'>{car.price}</p>
+                  </div>            
+                  <div className="buttonContainer d-flex justify-content-center">
                       <button href="#" className="btn btn-danger"
                       onClick={(e) => {handleClick(e, car.id)}}>
                         Detailed Specs

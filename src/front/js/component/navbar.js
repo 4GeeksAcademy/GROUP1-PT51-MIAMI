@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <nav className="navbar navbar-dark bg-dark">
-      <div className="container m-0">
+      <div className="container-fluid m-0">
         <div>
           <Link to={"/"}>
             <img
@@ -35,7 +35,7 @@ export const Navbar = () => {
         <div>
           <Filters />
         </div>
-        <div className="ml-auto d-flex">
+        <div className="ml-auto d-flex justify-content-end">
           {token ? (
             <LogoutButton />
           ) : (

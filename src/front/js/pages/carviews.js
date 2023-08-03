@@ -45,7 +45,7 @@ const CarViews = () => {
   return (
     <div>
       <div className="cardsTitleHolder">
-        <h1 className="descriptionTitle">Cars</h1>
+        <h1 className="descriptionTitle text-center">Cars</h1>
       </div>
       <div className="">
         <div className="bg-black">
