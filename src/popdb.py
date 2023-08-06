@@ -18,5 +18,5 @@ def pop_cars():
     db.session.commit()
 
 with app.app_context(): 
-    # pop_cars()
+    pop_cars()
     pop_images()

@@ -1,12 +1,10 @@
 import React, { useContext } from 'react'
 import { Context } from '../store/appContext'
 import "../../styles/cardata.css"
-import { useParams } from 'react-router-dom'
-const AboutCar = () => {
-  let{theid}= useParams()
-    const {store} = useContext(Context)
-    const actualCar = store.cars[parseInt(theid)-1]
+    const{store,actions} = useContext(Context)
+    const actualCar = store.singleCar
     console.log(actualCar)
+    
   return (
     <div className='bg bg-secondary'>
         <div className="container">
@@ -48,5 +46,5 @@ const AboutCar = () => {
     </div>
   
 
-        )}
+        )
 export default AboutCar;
