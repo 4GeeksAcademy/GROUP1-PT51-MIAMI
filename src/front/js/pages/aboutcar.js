@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../store/appContext'
 import "../../styles/cardata.css"
+  const AboutCar=()=>{
     const{store,actions} = useContext(Context)
     const actualCar = store.singleCar
     console.log(actualCar)
@@ -46,5 +47,5 @@ import "../../styles/cardata.css"
     </div>
   
 
-        )
+        )}
 export default AboutCar;
