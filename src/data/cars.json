@@ -1,0 +1,130 @@
+{
+  "cars": [
+    {
+      "year": 2023,
+      "brand": "Toyota",
+      "car_name": "Camry",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Ford",
+      "car_name": "F-150",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "BMW",
+      "car_name": "3 Series",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Kia",
+      "car_name": "Sorento",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Subaru",
+      "car_name": "Outback",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Tesla",
+      "car_name": " 3",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Ferrari",
+      "car_name": "488 GTB",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Alfa Romeo",
+      "car_name": "Giulia",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Dodge",
+      "car_name": "Charger",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "GMC",
+      "car_name": "Sierra",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Acura",
+      "car_name": "MDX",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Nissan",
+      "car_name": "Rogue",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Subaru",
+      "car_name": "Forester",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Ford",
+      "car_name": "Escape",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Kia",
+      "car_name": "Sportage",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "BMW",
+      "car_name": "5 Series",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Mercedes-Benz",
+      "car_name": "GLC",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Audi",
+      "car_name": "A4",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Chevrolet",
+      "car_name": "Equinox",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Honda",
+      "car_name": "Accord",
+      "car_type": "sedan"
+    },
+    {
+      "year": 2023,
+      "brand": "Nissan",
+      "car_name": "Altima",
+      "car_type": "sedan"
+    }
+  ]
+}

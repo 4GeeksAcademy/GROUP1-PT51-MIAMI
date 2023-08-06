@@ -56,7 +56,7 @@ class Car(db.Model):
     images = db.relationship('Car_image', back_populates='car')
     price = db.Column(db.String(50))
     def __repr__(self):
-        return f'<Car {self.id}>'
+        return f'<Car {self.id} {self.brand} {self.car_name}>'
     def serialize(self):
         return {
             "id": self.id,

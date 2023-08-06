@@ -13,14 +13,14 @@ const CarCards = ({cars}) => {
     e.preventDefault()
     navigate("/about/" + carId)
   }
-
+  console.log(cars)
   return (
     <div className="bg bg-secondary" style={{"display": "flex"}}>
     {cars.map((car, index) => {
         return (
             <div key={index} className="card bg bg-dark d-flex rounded-4">
             <img
-              src={car.images[0].image_url}
+              src={car.images.length ? car.images[0].image_url:"https://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg"}
               className="card-img-top rounded-5"
               alt="..."
               style={{ width: "100%", height: "auto"}}
