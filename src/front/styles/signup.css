@@ -34,8 +34,12 @@
   .form-input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: none !important;
+    border-bottom: 1px solid #ccc !important;
+    color:white !important;
     border-radius: 4px;
+    margin-bottom: 6px;
+    background-color: transparent;
   }
 
   .signup-button {
@@ -43,8 +47,8 @@
     padding: 8px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #fff;
+    color: #1f1e1e;
     font-weight: bold;
     cursor: pointer;
   }

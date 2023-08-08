@@ -78,12 +78,12 @@ export default function CreateAccount() {
 
 
   return (
-    <div className="signup-container">
-    <h2 className="signup-title">Sign Up</h2>
+    <div className="signup-container ">
 
 
 
-    <form className="signup-form" onSubmit={handleSubmit}>
+    <form className="signup-form border border-white p-5" onSubmit={handleSubmit}>
+      <h2 className="signup-title text-light text-center">Sign Up</h2>
       <input
         className="form-input"
         type="text"
@@ -115,7 +115,7 @@ export default function CreateAccount() {
 
 
 
-      <button type="submit" className="signup-button">Sign Up</button>
+      <button type="submit" className="signup-button mt-4">Sign Up</button>
     </form>
   </div>
 );
