@@ -44,7 +44,7 @@ const SearchBar = () => {
             <div className='searchBarContainer'>
               <div className='inputContainer' onClick={() => setShowDropdown(true)}>
                 <input
-                placeholder='       Search for a Car'
+                placeholder='Search for a Car'
                 value={inputValue}
                 onChange={(e) => handleSearch(e)}
                 onKeyDown={() => setShowDropdown(true)}
@@ -60,7 +60,7 @@ const SearchBar = () => {
                       handleClick(e, car.id)
                     }} >
                           <div className="carNames carFormatted" value={car.car_name}>
-                            <h4 className='text-secondary' key={index}>{car.car_name}</h4>
+                            <h4 className='text-secondary' key={car.id}>{car.car_name}</h4>
                           </div>
                           <div className='imagesDiv' style={{"width": "44rem", "height": "auto"}}>
                             <img className="rounded w-100" src={car.images[0].image_url }/>

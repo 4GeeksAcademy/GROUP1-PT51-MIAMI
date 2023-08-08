@@ -68,10 +68,6 @@ const getState = ({ getStore, getActions, setStore }) => {
               redirect: "follow",
             }
           );
-          if (!response.ok) {
-            // Handle error if the response is not successful (optional)
-            throw new Error("Network response was not ok");
-          }
           const data = await response.json();
           setStore({ singleCar: data });
         } catch (error) {
@@ -110,6 +106,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             // Reset the error message (if any) after successful login
             setStore({ errorMessage: null });
 
+            const tokenExpTime = 60*60*1000;
+            setTimeout(() => {
+              setStore({token : null});
+              localStorage.removeItem("token");
+              alert("Session Expired due to inactivity");
+            }, tokenExpTime);
             // Redirect to the desired page or perform any necessary action
             // Example: history.push("/dashboard");
           } else {

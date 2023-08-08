@@ -81,6 +81,8 @@
 		"react": "^16.8.4",
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
-		"react-router-dom": "^6.3.0"
+		"react-router-dom": "^6.3.0",
+		"react-slick": "^0.29.0",
+		"slick-carousel": "^1.8.1"
 	}
 }

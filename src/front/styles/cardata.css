@@ -3,3 +3,22 @@
     font-weight: bold;
     text-transform: capitalize;
 }
+
+.image-gallery {
+    max-width: 800px; /* Adjust to your desired width */
+    margin: 0 auto; /* Center the carousel */
+  }
+  
+  /* Customize the navigation arrows */
+  .slick-prev:before,
+  .slick-next:before {
+    color: #000; /* Change the color of the arrows */
+  }
+  
+  .slick-prev:before {
+    content: '←'; /* Set the left arrow character */
+  }
+  
+  .slick-next:before {
+    content: '→'; /* Set the right arrow character */
+  }
