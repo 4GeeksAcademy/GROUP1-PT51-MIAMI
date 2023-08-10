@@ -83,12 +83,11 @@ export const Navbar = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  {/* "Home" as a button */}
-                  <button className="btn btn-secondary">
-                    <Link to={"/"}>
-                      <h5>Home</h5>
-                    </Link>
-                  </button>
+                <button className="btn navbar">
+             <Link to={"/"}>
+              <h5>Home</h5>
+              </Link>
+              </button>
                 </li>
                 {token ?
                   <div>

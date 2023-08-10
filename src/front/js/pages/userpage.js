@@ -32,7 +32,7 @@ const UserPage = () => {
 
     fetchUserData();
     actions.retrieveData();
-  }, [store.token]);
+  }, [store.token] [store.saved]);
 
   if (loading) {
     return <p className="login-title">Loading user data...</p>;
