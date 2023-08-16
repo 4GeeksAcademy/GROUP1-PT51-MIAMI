@@ -1,7 +1,10 @@
 from app import app
 import json
 from api.models import Car, db, Car_image
-
+def clear_db():
+    db.drop_all()
+    db.create_all()
+    db.session.commit()
 def pop_images():
     images = []
     with open("./src/data/images.json", "rt") as imagefile: 
@@ -18,5 +21,6 @@ def pop_cars():
     db.session.commit()
 
 with app.app_context(): 
+    clear_db()
     pop_cars()
     pop_images()
