@@ -20,3 +20,7 @@
     margin: 0px;
     text-align: center;
 }
+.card-img-top{
+object-fit: cover !important;
+object-position: center;
+}
