@@ -99,7 +99,7 @@ class Review(db.Model):
     car_model = relationship('Car', backref='reviews', foreign_keys=[car_id])
     
     def __repr__(self):
-        return f'<Review {self.id}, {self.user_first_name}, {self.car_name}'
+        return f'<Review {self.id}, User {self.user_name}, Car {self.car_model}'
     
     def serialize(self):
         return {

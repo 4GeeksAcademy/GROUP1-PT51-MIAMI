@@ -14,7 +14,8 @@ const Filters = () => {
   const [selectedCarEngines, setSelectedCarEngines] = useState([]);
   const [selectedCarTransmissions, setSelectedCarTransmissions] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState([]);
-  const [rangeValue, setRangeValue] = useState(null)
+  const [rangeValue, setRangeValue] = useState(null);
+
 
   // GETTING CARS FROM STORE
   const cars = store.cars
@@ -34,8 +35,8 @@ const handleCarMakeChange = (carMake) => {
     prevSelected.includes(carMake)
       ? prevSelected.filter((make) => make !== carMake)
       : [...prevSelected, carMake]
-  );
-};
+    );
+  };
 
 // Function to handle checkbox change for carEngines
 const handleCarEngineChange = (carEngine) => {
@@ -54,6 +55,12 @@ const handleCarTransmissionChange = (carTransmission) => {
       : [...prevSelected, carTransmission]
   );
 };
+
+  // Extract unique values for each property
+  const uniqueCarTypes = [...new Set(cars.map(car => car.car_type))];
+  const uniqueCarMakes = [...new Set(cars.map(car => car.brand))];
+  const uniqueCarEngines = [...new Set(cars.map(car => car.engine))];
+  const uniqueCarTransmissions = [...new Set(cars.map(car => car.transmission))];
 
 
 // FUNCTION TO CONTROL RANGE INPUT
@@ -108,7 +115,7 @@ const handleApplyFilters = () => {
                   Cars under:
                 </div>
                 <div className='d-flex justify-content-center'>
-                  <input onChange={handleRange} type="range" min="22500" max="100000" value={rangeValue} step="100"/>
+                  <input onChange={handleRange} type="range" min="22500" max="100000" value={rangeValue} step="500"/>
                 </div>
                 <div className='d-flex justify-content-center'>
                   <input onChange={handleRange} value={rangeValue}/>
@@ -118,95 +125,69 @@ const handleApplyFilters = () => {
                 <div className="col-3 carTypeContainer">
                   Car Type
                   <div className='carFilterOptions'>
-                  {cars.map((carType, index) => {
-                    if (index === 0 || carType.car_type !== cars[index - 1].car_type) {                 
-                      return (
-                            <div key={index}>
-                              <label className='parametersContainer carFormatted'>
-                                <input type="checkbox"
-                                  defaultChecked={checked}
-                                  checked={selectedCarTypes.includes(carType.car_type)}
-                                  onChange={() => {
-                                    handleCarTypeChange(carType.car_type);
-                                    setChecked(true)} }
-                                  key={index}
-                                />
-                                {carType.car_type}
-                              </label>
-                            </div>                
-                      );
-                     }
-                    else return null
-                  })}
+                  {uniqueCarTypes.map((carType, index) => (
+                      <div key={index}>
+                        <label className='parametersContainer carFormatted'>
+                          <input
+                            type="checkbox"
+                            checked={selectedCarTypes.includes(carType)}
+                            onChange={() => handleCarTypeChange(carType)}
+                          />
+                          {carType}
+                        </label>
+                      </div>
+                    ))}
                     </div>
                 </div>
-                <div className="col-3 carMakeContainer">
+                  <div className="col-3 carMakeContainer">
                   Car Make
-                  <div className='carFilterOptions'>
-                  {cars.map((carMake, index) => {
-                    if (index === 0 || carMake.brand !== cars[index - 1].brand) {                 
-                      return (
-                        <div key={index}>
-                            <label  className='parametersContainer carFormatted'>
-                                <input type="checkbox"
-                                  defaultChecked={checked}
-                                  checked={selectedCarMakes.includes(carMake.brand)}
-                                  onChange={() => handleCarMakeChange(carMake.brand)}
-                                  
-                                />
-                                {carMake.brand}
-                            </label>
-                          </div>                 
-                      );
-                     }
-                    else return null
-                  })}
-                  </div>                  
+                  <div className="carFilterOptions">
+                    {uniqueCarMakes.map((carMake, index) => (
+                      <div key={index}>
+                        <label className="parametersContainer carFormatted">
+                          <input
+                            type="checkbox"
+                            checked={selectedCarMakes.includes(carMake)}
+                            onChange={() => handleCarMakeChange(carMake)}
+                          />
+                          {carMake}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="col-3 carEngineContainer">
                   Engine
-                  <div className='carFilterOptions'>
-                  {cars.map((carEngine, index) => {
-                    if (index === 0 || carEngine.engine !== cars[index - 1].engine) {                 
-                      return (
-                        <div key={index}>
-                            <label className='parametersContainer carFormatted'>
-                                <input type="checkbox"
-                                  defaultChecked={checked}
-                                  checked={selectedCarEngines.includes(carEngine.engine)}
-                                  onChange={() => handleCarEngineChange(carEngine.engine)}
-                                
-                                />
-                                {carEngine.engine}
-                            </label>
-                          </div>                 
-                      );
-                     }
-                    else return null
-                  })}
-                  </div> 
+                  <div className="carFilterOptions">
+                    {uniqueCarEngines.map((carEngine, index) => (
+                      <div key={index}>
+                        <label className="parametersContainer carFormatted">
+                          <input
+                            type="checkbox"
+                            checked={selectedCarEngines.includes(carEngine)}
+                            onChange={() => handleCarEngineChange(carEngine)}
+                          />
+                          {carEngine}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="col-3 carTransmissionContainer">
                   Transmission
-                  <div className='carFilterOptions'>
-                  {cars.map((carTransmission, index) => {
-                    if (index === 0 || carTransmission.transmission !== cars[index - 1].transmission) {                 
-                      return (
-                        <div key={index}>
-                            <label  className='parametersContainer carFormatted'>
-                                <input type="checkbox"
-                                  defaultChecked={checked}
-                                  checked={selectedCarTransmissions.includes(carTransmission.transmission)}
-                                  onChange={() => handleCarTransmissionChange(carTransmission.transmission)}
-                                  
-                                />
-                                {carTransmission.transmission}
-                            </label>
-                          </div>                 
-                      );
-                     }
-                    else return null
-                  })}
+                  <div className="carFilterOptions">
+                    {uniqueCarTransmissions.map((carTransmission, index) => (
+                      <div key={index}>
+                        <label className="parametersContainer carFormatted">
+                          <input
+                            type="checkbox"
+                            checked={selectedCarTransmissions.includes(carTransmission)}
+                            onChange={() => handleCarTransmissionChange(carTransmission)}
+                          />
+                          {carTransmission}
+                        </label>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../store/appContext'
 import '../../styles/starRatingInput.css'
 import "../../styles/cardata.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
 
 const AboutCar = () => {
     const [rating, setRating] = useState(0)
