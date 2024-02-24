@@ -13,15 +13,18 @@ class Saved(db.Model):
     user_id = db.Column(db.Integer, ForeignKey("user.id"), nullable=True)
     car_id = db.Column(db.Integer, ForeignKey('car.id'), nullable=True)
     # THE FOLLOWING 2 COLUMNS ESTABLISHES RELATIONSHIP BETWEEN CARS ON OUR DATABASE AND USERS ON OUR DATABASE
-    user = db.relationship('User', backref='saved_cars', foreign_keys=[user_id])
-    car = db.relationship('Car', backref='saved_by_users', foreign_keys=[car_id])
+    user = db.relationship('User', backref='saved_cars',
+                           foreign_keys=[user_id])
+    car = db.relationship('Car', backref='saved_by_users',
+                          foreign_keys=[car_id])
+
     def __repr__(self):
         return f'<Car id:{self.car_id} Saved id:{self.id}>'
+
     def serialize(self):
         return {
             "car": self.car.serialize() if self.car else None
         }
-    
 
 
 class User(db.Model):
@@ -31,9 +34,12 @@ class User(db.Model):
     first_name = db.Column(db.String(120), nullable=False, unique=True)
     phone_number = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(250), unique=False, nullable=False)
-    saved = relationship('Saved', lazy=True, back_populates='user', overlaps="saved_cars")
+    saved = relationship('Saved', lazy=True,
+                         back_populates='user', overlaps="saved_cars")
+
     def __repr__(self):
         return f'<User {self.email}>'
+
     def serialize(self):
         return {
             "id": self.id,
@@ -42,7 +48,7 @@ class User(db.Model):
             "phone_number": self.phone_number,
             "saved": list(map(lambda x: x.serialize(), self.saved))
         }
-    
+
 
 class Car(db.Model):
     __tablename__ = 'car'
@@ -59,6 +65,7 @@ class Car(db.Model):
 
     def __repr__(self):
         return f'<Car {self.id} {self.brand} {self.car_name}>'
+
     def serialize(self):
         return {
             "id": self.id,
@@ -72,22 +79,26 @@ class Car(db.Model):
             "price": self.price,
             "overall": self.overall_rating
         }
-    
-    
+
+
 class Car_image(db.Model):
     __tablename__ = 'car_image'
     id = db.Column(db.Integer, primary_key=True)
     image_url = db.Column(db.String(250), nullable=False)
     car_id = db.Column(db.Integer, ForeignKey('car.id'), nullable=False)
-    car = db.relationship('Car', back_populates='images', foreign_keys=[car_id], overlaps='images' )
+    car = db.relationship('Car', back_populates='images',
+                          foreign_keys=[car_id], overlaps='images')
+
     def __repr__(self):
         return f'<Image {self.id}>'
+
     def serialize(self):
         return {
             "id": self.id,
             "image_url": self.image_url,
         }
-    
+
+
 class Review(db.Model):
     __tablename__ = 'review'
     id = db.Column(db.Integer, primary_key=True)
@@ -97,10 +108,10 @@ class Review(db.Model):
     car_id = db.Column(db.Integer, ForeignKey("car.id"))
     user_name = relationship('User', backref='reviews', foreign_keys=[user_id])
     car_model = relationship('Car', backref='reviews', foreign_keys=[car_id])
-    
+
     def __repr__(self):
         return f'<Review {self.id}, User {self.user_name}, Car {self.car_model}'
-    
+
     def serialize(self):
         return {
             "review_id": self.id,

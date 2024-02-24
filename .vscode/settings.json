@@ -1,6 +1,6 @@
 {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "KylinIDETeam.python",
     "workbench.editorAssociations": {
         "*.md": "vscode.markdown.preview.editor"
     },
