@@ -39,6 +39,7 @@ const UserPage = () => {
 
   if (user) {
     const savedCars = user.saved.map(savedCar => savedCar.car);
+
     return (
       <div>
         <div className="user-container">
@@ -50,13 +51,13 @@ const UserPage = () => {
             Phone Number: <span className="data-value">{user.phone_number}</span>
           </p>
           <p className="data-label">
-            Number of Favorites: <span className="data-value">{savedCars.length}</span>
+            {/* Number of Favorites: <span className="data-value">{savedCars.length}</span> */}
           </p>
         </div>
         <div>
           <div className="favorite-cars">
             <center><h3>Saved Favorite Cars</h3></center>
-            <CarCards cars={savedCars} />
+            {/* <CarCards cars={savedCars} /> */}
           </div>
           {/* Render other user data here */}
         </div>

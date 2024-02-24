@@ -16,17 +16,17 @@ export const Navbar = () => {
       <div className="container-fluid m-0">
         <div className="d-flex align-items-center">
           <Link to={"/"}>
-          <img
-          className="logo" // Add the class name here
-          src="https://static.vecteezy.com/system/resources/previews/013/923/543/original/blue-car-logo-png.png"
-          style={{ width: "7rem", height: "auto" }}
-          alt="Logo"
-        />
-            
+            <img
+              className="logo" // Add the class name here
+              src="https://static.vecteezy.com/system/resources/previews/013/923/543/original/blue-car-logo-png.png"
+              style={{ width: "7rem", height: "auto" }}
+              alt="Logo"
+            />
+
           </Link>
           <Link to="/catalog">
             <button className="btn btn-primary ml-3">
-            <i className="fas fa-book fa-1x"></i>
+              <i className="fas fa-book fa-1x"></i>
               <h7> Catalog</h7>
             </button>
           </Link>
@@ -85,9 +85,9 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <Link to={"/"}>
                     <button className="btn navbar">
-                    <i className="fas fa-home fa-2x"></i>
-                    
-                      
+                      <i className="fas fa-home fa-2x"></i>
+
+
                     </button>
                   </Link>
                 </li>
@@ -119,7 +119,9 @@ export const Navbar = () => {
                         className="dropdown-menu dropdown-menu-dark"
                         id="drop-down-menu"
                       >
-                        {store.saved.map((item, index) => {
+
+                        {/* {
+                          store.saved.map((item, index) =>{
                           const car = item.car;
                           if (store.saved.includes(car))
                             alert("Car is already added");
@@ -151,7 +153,7 @@ export const Navbar = () => {
                               </button>
                             </div>
                           );
-                        })}
+                        })} */}
                         <li>
                           <hr className="dropdown-divider" />
                         </li>
