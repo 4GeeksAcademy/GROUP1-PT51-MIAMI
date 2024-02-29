@@ -36,20 +36,26 @@ export const Navbar = () => {
 
         </div>
         <div className="ml-auto d-flex align-items-center">
-        {token && (
-  <>
-    <Link to="/userpage">
-      <button className="navbuttons" style={{ marginRight: '5px' }}>
-        <i className="fa-solid fa-user"></i>
-      </button>
-    </Link>
-    <Link to="/home">
-      <button className="navbuttons" style={{ marginRight: '5px' }}>
-        <i className="fa-solid fa-home"></i>
-      </button>
-    </Link>
-  </>
-)}
+          {token && (
+            <>
+              <Link to="/userpage">
+                <button className="navbuttons" style={{ marginRight: '5px' }}>
+                  <i className="fa-solid fa-user"></i>
+                </button>
+              </Link>
+              <Link to="/">
+                <button className="navbuttons" style={{ marginRight: '5px' }}>
+                  <i className="fa-solid fa-home"></i>
+                </button>
+              </Link>
+              <Link to="/usersettings">
+                <button className="navbuttons" style={{ marginRight: '5px', textDecoration: 'none' }}>
+
+                  <i class="fa-solid fa-gear"></i>
+                </button>
+              </Link>
+            </>
+          )}
 
 
 
