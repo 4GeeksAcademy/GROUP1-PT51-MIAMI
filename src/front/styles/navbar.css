@@ -146,8 +146,25 @@
   }
 /* Styles for the Logout button */
 .logout {
-  background-color: #e53935; /* Red background color */
-  color: #fff; /* White text color */
+  background-color: transparent ;
+  color: #d20808 ;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  transition: color 0.5s, box-shadow 0.5s !important;
+  outline: none !important;
+  text-decoration: none;
+  
+}
+
+.logout:hover {
+  color: hsl(0, 100%, 89%) ;
+  background-color: #e73a3a;
+  box-shadow: 0px 0px 30px #ff3333 !important;
 }
 
 .logout:hover {

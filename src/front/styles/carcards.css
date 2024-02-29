@@ -4,9 +4,9 @@
 
 .carCard:hover {
     /* Set the card to pop up */
-    transform: scale(1.111);
+    transform: scale(1.07);
     /* Set the background color to highlight the card */
-    transition: transform 400ms ease-in, background-color 400ms ease;
+    transition: transform 200ms ease-in, background-color 200ms ease;
   }
 
 .bodyContainer {
