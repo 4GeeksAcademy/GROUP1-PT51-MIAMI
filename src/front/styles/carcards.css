@@ -97,8 +97,8 @@
 }
 
 .carCard .compareadd {
-    background-color: transparent !important;
-    color: #66ff66 !important; /* Green text */
+    background-color: transparent ;
+    color: #008400 !important; /* Green text */
     border-radius: 50% !important;
     width: 40px !important;
     height: 40px !important;
@@ -106,20 +106,21 @@
     justify-content: center !important;
     align-items: center !important;
     cursor: pointer !important;
-    transition: color 0.3s, box-shadow 0.3s !important;
+    transition: color 0.5s, box-shadow 0.5s ;
     outline: none !important;
     padding: 0 !important;
     box-sizing: none;
 }
 
 .carCard .compareadd:hover {
-    color: #33ff33 !important; /* Slightly darker green on hover */
-    box-shadow: 0px 0px 30px #33ff33 !important;
+    color: hsl(105, 93%, 88%) !important; /* Slightly darker green on hover */
+    background: #44e744;
+    box-shadow: 0px 0px 30px #33ff33 
 }
 
 .carCard .compareadd:active {
-    color: #009900 !important; /* Slightly darker green on press */
-    box-shadow: inset 0px 0px 5px #009900 !important;
+    color: #ffffff !important; /* Slightly darker green on press */
+    box-shadow: inset 0px 0px 5px  #33ff33 !important;
     transform: translateY(2px) !important;
 }
 
@@ -128,8 +129,8 @@
 }
 
 .carCard .comparedel {
-    background-color: transparent !important;
-    color: #ff6666 !important; /* Red text */
+    background-color: transparent ;
+    color: #d20808 ;
     border-radius: 50% !important;
     width: 40px !important;
     height: 40px !important;
@@ -137,17 +138,18 @@
     justify-content: center !important;
     align-items: center !important;
     cursor: pointer !important;
-    transition: color 0.3s, box-shadow 0.3s !important;
+    transition: color 0.5s, box-shadow 0.5s !important;
     outline: none !important;
 }
 
 .carCard .comparedel:hover {
-    color: #ff3333 !important; /* Slightly darker red on hover */
+    color: hsl(0, 100%, 89%) ;
+    background-color: #e73a3a;
     box-shadow: 0px 0px 30px #ff3333 !important;
 }
 
 .carCard .comparedel:active {
-    color: #990000 !important; /* Slightly darker red on press */
+    color:#ffffff ;
     box-shadow: inset 0px 0px 5px #990000 !important;
     transform: translateY(2px) !important;
 }
