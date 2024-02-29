@@ -16,18 +16,18 @@ export const Navbar = () => {
       <div className="container-fluid m-0">
         <div className="d-flex align-items-center">
           <Link to={"/"}>
-          <img
-          className="logo" // Add the class name here
-          src="https://static.vecteezy.com/system/resources/previews/013/923/543/original/blue-car-logo-png.png"
-          style={{ width: "7rem", height: "auto" }}
-          alt="Logo"
-        />
-            
+            <img
+              className="logo" // Add the class name here
+              src="https://static.vecteezy.com/system/resources/previews/013/923/543/original/blue-car-logo-png.png"
+              style={{ width: "7rem", height: "auto" }}
+              alt="Logo"
+            />
+
           </Link>
           <Link to="/catalog">
             <button className="btn btn-primary ml-3">
-            <i className="fas fa-book fa-1x"></i>
-              <h7> Catalog</h7>
+              <i className="fas fa-book fa-1x"></i>
+              Catalog
             </button>
           </Link>
         </div>
@@ -42,7 +42,7 @@ export const Navbar = () => {
             <div className="d-flex">
               <Link to={"/signup"}>
                 <button className="signup">
-                  <h7>Sign Up</h7>
+                  Sign Up
                 </button>
               </Link>
               <Link to={"/Login"}>
@@ -85,9 +85,9 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <Link to={"/"}>
                     <button className="btn navbar">
-                    <i className="fas fa-home fa-2x"></i>
-                    
-                      
+                      <i className="fas fa-home fa-2x"></i>
+
+
                     </button>
                   </Link>
                 </li>
@@ -96,7 +96,7 @@ export const Navbar = () => {
                     <li className="nav-item">
                       <Link to={"/compare"}>
                         <button className="btn btn-secondary">
-                          Compare added cars
+                          Compare Page
                         </button>
                       </Link>
                     </li>
