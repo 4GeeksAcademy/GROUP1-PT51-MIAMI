@@ -1,12 +1,68 @@
-.modal-content {
-    border-radius: 6%;
-    width: 120%;
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-.carFilterOptions{
+.modal-content {
+    background-color: #001225ea;
+    color: #ffffff;
+    border: 2px solid #0074cc;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background-color: #004080;
+    color: #ffffff;
+    border-bottom: 2px solid #0074cc;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    background-color: #004080;
+    border-top: 2px solid #0074cc;
+}
+
+.btn-close {
+    color: #ffffff;
+}
+
+.btn-success {
+    background-color: #0099cc;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+    background-color: #007399;
+}
+
+input[type="range"] {
     width: 100%;
+    margin-top: 10px;
 }
 
 .parametersContainer {
-    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.parametersContainer input {
+    margin-right: 5px;
+}
+
+.parametersContainer:hover {
+    animation: glow 0.5s ease-in-out infinite alternate;
+}
+
+.modal-content,
+.modal-content * {
+    color: #ffffff !important;
+}
+
+.modal-content input {
+    color: #000000 !important;
 }

@@ -28,7 +28,7 @@
 }
 
 .carNames {
-    width: 90rem;
+    width: 100rem;
     padding: 8px 16px;
     cursor: pointer;
 }
@@ -60,7 +60,7 @@
     position:absolute;
     z-index: 9999;
     background-color: rgb(18,18,18);
-    width: 18.5%;
+    width: 23%;
     max-height: 200px;
     overflow-y: auto;
     color: lightgray;

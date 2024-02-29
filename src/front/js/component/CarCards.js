@@ -57,14 +57,14 @@ const CarCards = ({ cars }) => {
                             actions.saveFavorites(car);
                           }
                         }}>
-                        <i className="fa-solid fa-thumbs-up" style={{ color: "#ffd43b", padding: "0" }} />
+                        <i className="fa-solid fa-thumbs-up" />
                       </button>
                       <button
                         className='favoritesCards'
                         onClick={() => {
                           actions.deleteSaved(car.id);
                         }}>
-                        <i className="fa-solid fa-thumbs-down" style={{ color: "#ffd43b", padding: "0" }} />
+                        <i className="fa-solid fa-thumbs-down" />
                       </button>
                       <button className="compareadd"
                         onClick={() => {
