@@ -1,12 +1,87 @@
+/* Background overlay for the modal */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Main content area of the modal */
 .modal-content {
-    border-radius: 6%;
-    width: 120%;
+    background-color: #002247e6; /* Dark blue background */
+    color: #ffffff; /* White text color */
+    border: 2px solid #0074cc; /* Blue border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Blue box shadow */
 }
 
-.carFilterOptions{
+/* Header section of the modal */
+.modal-header {
+    background-color: #004080; /* Dark blue header background */
+    color: #ffffff; /* White text color */
+    border-bottom: 2px solid #0074cc; /* Blue border */
+}
+
+/* Body section of the modal */
+.modal-body {
+    padding: 20px; /* Padding around the content */
+}
+
+/* Footer section of the modal */
+.modal-footer {
+    background-color: #004080; /* Dark blue footer background */
+    border-top: 2px solid #0074cc; /* Blue border */
+}
+
+/* Close button of the modal */
+.btn-close {
+    color: #ffffff; /* White close button color */
+}
+
+/* Success button style */
+.btn-success {
+    background-color: #0099cc; /* Blue button background */
+    color: #ffffff; /* White text color */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover effect for success button */
+.btn-success:hover {
+    background-color: #007399; /* Darker blue on hover */
+}
+
+/* Styling for range input */
+input[type="range"] {
     width: 100%;
+    margin-top: 10px;
 }
 
+/* Container for parameters */
 .parametersContainer {
-    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Styling for parameter inputs */
+.parametersContainer input {
+    margin-right: 5px;
+}
+
+/* Hover effect for parameter container */
+.parametersContainer:hover {
+    animation: glow 0.5s ease-in-out infinite alternate; /* Glow effect on hover */
+}
+
+/* Text and input color for modal content */
+.modal-content,
+.modal-content * {
+    color: #ffffff !important; /* White text color */
+}
+
+/* Input color for modal content */
+.modal-content input {
+    color: #000000 !important; /* Black input text color */
+}
+
+/* Blue box shadow around the whole modal */
+.modal-content {
+    box-shadow: 0 0 40px rgba(0, 0, 255, 0.5); /* Blue box shadow */
 }

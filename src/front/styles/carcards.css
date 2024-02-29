@@ -4,9 +4,9 @@
 
 .carCard:hover {
     /* Set the card to pop up */
-    transform: scale(1.1);
+    transform: scale(1.07);
     /* Set the background color to highlight the card */
-    transition: transform 300ms ease-in, background-color 300ms ease;
+    transition: transform 200ms ease-in, background-color 200ms ease;
   }
 
 .bodyContainer {
@@ -19,4 +19,141 @@
     padding: 0.8rem;
     margin: 0px;
     text-align: center;
+}
+.carCard .btn-Detailed {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    background-color: #0056b3; /* Set the same color as .navbar .btn:hover */
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.carCard .btn-Detailed:hover {
+    background-color: #002d5a; /* Set the same color as .navbar .btn:active */
+    color: #fff;
+    box-shadow: inset 0px 0px 5px #00b7ff;
+    text-decoration: none;
+}
+
+.carCard .btn-Detailed:active {
+    background-color: #002d5a; /* Set the same color as .navbar .btn:active */
+    box-shadow: inset 0px 0px 5px #00b7ff;
+    transform: translateY(2px);
+    color: #fff;
+    outline: none;
+}
+
+.carCard .btn-Detailed:focus {
+    outline: none;
+    animation: buttonClick 0.3s;
+}
+
+@keyframes buttonClick {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0px 0px 15px #00b7ff;
+    }
+    50% {
+        transform: translateY(2px);
+        box-shadow: inset 0px 0px 5px #00b7ff;
+    }
+    100% {
+        transform: translateY(0);
+        box-shadow: 0px 0px 15px #00b7ff;
+    }
+}
+
+
+.favoritesCards {
+    background-color: #00000000;
+    color: #eeff00;
+    border: none;
+    padding: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 30%;
+}
+
+.favoritesCards:hover {
+    background-color: #d4d125;
+    color: #fff;
+    box-shadow: 0px 0px 30px #ddff0090;
+    
+}
+
+.favoritesCards:active {
+    background-color: #939a3b;
+    box-shadow: inset 0px 0px 5px #fff700;
+    transform: translateY(2px);
+    color: #fff;
+    outline: none;
+}
+
+.carCard .compareadd {
+    background-color: transparent ;
+    color: #008400 !important; /* Green text */
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: color 0.5s, box-shadow 0.5s ;
+    outline: none !important;
+    padding: 0 !important;
+    box-sizing: none;
+}
+
+.carCard .compareadd:hover {
+    color: hsl(105, 93%, 88%) !important; /* Slightly darker green on hover */
+    background: #44e744;
+    box-shadow: 0px 0px 30px #33ff33 
+}
+
+.carCard .compareadd:active {
+    color: #ffffff !important; /* Slightly darker green on press */
+    box-shadow: inset 0px 0px 5px  #33ff33 !important;
+    transform: translateY(2px) !important;
+}
+
+.carCard .compareadd:focus {
+    outline: none !important;
+}
+
+.carCard .comparedel {
+    background-color: transparent ;
+    color: #d20808 ;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: color 0.5s, box-shadow 0.5s !important;
+    outline: none !important;
+}
+
+.carCard .comparedel:hover {
+    color: hsl(0, 100%, 89%) ;
+    background-color: #e73a3a;
+    box-shadow: 0px 0px 30px #ff3333 !important;
+}
+
+.carCard .comparedel:active {
+    color:#ffffff ;
+    box-shadow: inset 0px 0px 5px #990000 !important;
+    transform: translateY(2px) !important;
+}
+
+.carCard .comparedel:focus {
+    outline: none !important;
 }

@@ -16,15 +16,16 @@ import AboutPage from "./component/aboutPage";
 
 
 
+
 //create your first component
 const Layout = () => {
-  
-  const basename = process.env.BASENAME || "";
+
+    const basename = process.env.BASENAME || "";
 
 
-  if (!process.env.BACKEND_URL || process.env.BACKEND_URL === "") {
-    return <BackendURL />;
-  }
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL === "") {
+        return <BackendURL />;
+    }
     return (
         <div>
             <BrowserRouter basename={basename}>
@@ -34,14 +35,15 @@ const Layout = () => {
                         <Route element={<UserPage />} path="/userpage" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Login />} path="/Login" />
-                        <Route element={<AboutCar />} path="/about/:theid"/>
-                        <Route element={<AboutPage/>} path="/aboutus"/>
+                        <Route element={<AboutCar />} path="/about/:theid" />
+                        <Route element={<AboutPage />} path="/aboutus" />
                         <Route element={<CarViews />} path="/catalog" />
-                        <Route element={<CarComparison/>} path="/compare"/>
+                        <Route element={<CarComparison />} path="/compare" />
                         <Route element={<CreateAccount />} path="/signup" />
+
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
-                    <Footer/>
+                    <Footer />
                 </ScrollToTop>
             </BrowserRouter>
         </div>

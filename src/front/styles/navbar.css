@@ -146,13 +146,25 @@
   }
 /* Styles for the Logout button */
 .logout {
-  background-color: #e53935; /* Red background color */
-  color: #fff; /* White text color */
+  background-color: transparent ;
+  color: #d20808 ;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  transition: color 0.5s, box-shadow 0.5s !important;
+  outline: none !important;
+  text-decoration: none;
+  
 }
 
 .logout:hover {
-  background-color: #c62828; /* Darker red background on hover */
-  box-shadow: 0px 0px 15px #e53935; /* Red glow effect on hover */
+  color: hsl(0, 15%, 19%) ;
+  background-color: #e73a3a;
+  box-shadow: 0px 0px 30px #ff3333 !important;
 }
 
 .logout-button:active {
@@ -160,13 +172,8 @@
   box-shadow: inset 0px 0px 5px #e53935; /* Inset red glow effect on click */
   transform: translateY(2px);
 }
-/* body {
-  color:  #007bff; */
 
-/* h5 {
-  text-decoration: none;
-  text-decoration-color: white;
-} */
+
 
 .signup {
   background-color: #048638; /* Red background color */
@@ -186,4 +193,32 @@
 .footer-link {
   
   color: white;
+}
+.navbuttons {
+  background-color: transparent ;
+  color: #00b7ff ;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  transition: color 0.5s, box-shadow 0.5s !important;
+  outline: none !important;
+  text-decoration: none;
+  padding: 20%;
+  
+}
+
+.navbuttons:hover {
+  color: hsl(178, 23%, 21%) ;
+  background-color: #00ffc3;
+  box-shadow: 0px 0px 30px #00b7ff !important;
+}
+
+.navbuttons:active {
+  background-color: #00eeff; /* Even darker red background on click */
+  box-shadow: inset 0px 0px 5px #0fece8; /* Inset red glow effect on click */
+  transform: translateY(2px);
 }

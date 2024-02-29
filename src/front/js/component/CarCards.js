@@ -14,8 +14,8 @@ const CarCards = ({ cars }) => {
     actions.singleCar(carId);
     e.preventDefault();
     navigate("/about/" + carId);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top of the page
   };
-
 
   return (
     <div className="container-fluid row m-0 w-100 justify-content-center" style={{ background: '#A6A4A4' }}>
@@ -23,31 +23,27 @@ const CarCards = ({ cars }) => {
         return (
           <div key={index} className="col-3 m-3 carCard bg bg-dark rounded-4 p-0" style={{ width: "20%" }}>
             <img
-              src={car.images ? car.images[0].image_url:"https://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg"}
+              src={car.images ? car.images[0].image_url : "https://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg"}
               className="card-img-top rounded-5"
               alt="..."
               style={{ width: "100%", height: "230px", objectFit: "fill" }}
             />
             <div className="card-body d-flex">
-              <div className='w-100'>                
-                  <div className='row justify-content-around border-bottom border-black bodyContainer'>
-                    <h4 className="card-text col" style={{ color: "rgb(108,117,125)" }}>Model</h4>
-                    <p className='carFormatted card-text col' style={{color : "#F2F2F2"}}>{car.car_name}</p>
-                  </div>
-                  <div className='row justify-content-around border-bottom border-black bodyContainer'>
-                    <h4 className="card-text col " style={{ color: "rgb(108,117,125)" }}>Make</h4>
-                    <p className='carFormatted card-text col' style={{color : "#F2F2F2"}}>{car.brand}</p>
-                  </div>
-                  <div className='row justify-content-around border-bottom border-black bodyContainer'>
-                    <h4 className="card-text col" style={{ color: "rgb(108,117,125)" }}>MSRP</h4>
-                    <p className='carFormatted card-text col' style={{color : "#F2F2F2"}}>{car.price}</p>
-                  </div>
+              <div className='w-100'>
+                <div className='row justify-content-around border-bottom border-black bodyContainer'>
+                  <h4 className="card-text col" style={{ color: "rgb(108,117,125)" }}>Model</h4>
+                  <p className='carFormatted card-text col' style={{ color: "#F2F2F2" }}>{car.car_name}</p>
+                </div>
+                <div className='row justify-content-around border-bottom border-black bodyContainer'>
+                  <h4 className="card-text col " style={{ color: "rgb(108,117,125)" }}>Make</h4>
+                  <p className='carFormatted card-text col' style={{ color: "#F2F2F2" }}>{car.brand}</p>
+                </div>
+                <div className='row justify-content-around border-bottom border-black bodyContainer'>
+                  <h4 className="card-text col" style={{ color: "rgb(108,117,125)" }}>MSRP</h4>
+                  <p className='carFormatted card-text col' style={{ color: "#F2F2F2" }}>{car.price}</p>
+                </div>
                 <div className="buttonContainer d-flex justify-content-center pt-3">
-                  <button href="#" className="btn btn-danger"
-                    onClick={(e) => {
-                      handleClick(e, car.id);
-                      console.log("Car ID CLICKED: ", car.id)
-                      }}>
+                  <button href="#" className="btn btn-Detailed" onClick={(e) => handleClick(e, car.id)}>
                     Detailed Specs
                   </button>
                   {token &&
@@ -61,18 +57,16 @@ const CarCards = ({ cars }) => {
                             actions.saveFavorites(car);
                           }
                         }}>
-                        <i className="fa-solid fa-thumbs-up" style={{ color: "#ffd43b", padding: "0" }}/>
-                      </button>                     
-                        <button 
+                        <i className="fa-solid fa-thumbs-up" />
+                      </button>
+                      <button
                         className='favoritesCards'
                         onClick={() => {
-
-                            actions.deleteSaved(car.id);
-                          
+                          actions.deleteSaved(car.id);
                         }}>
-                          <i className="fa-solid fa-thumbs-down" style={{ color: "#ffd43b", padding: "0" }}/>
-                        </button>
-                      <button
+                        <i className="fa-solid fa-thumbs-down" />
+                      </button>
+                      <button className="compareadd"
                         onClick={() => {
                           if (store.compareCars.includes(car)) {
                             return alert("Car already added");
@@ -81,19 +75,19 @@ const CarCards = ({ cars }) => {
                           }
                         }}>
                         <div className={`compareButton ${store.compareCars.includes(car) ? 'active' : ''}`}>
-                        <i class="fa-solid fa-code-compare"></i>
+                          <i class="fa-solid fa-chart-simple"></i>
                         </div>
                       </button>
-                      <button
+                      <button className="comparedel"
                         onClick={() => {
                           if (!store.compareCars.includes(car)) {
-                            return alert("Car is not on compare list");
+                            return alert("Car is not on the compare list");
                           } else {
                             actions.deleteCarToCompare(car);
                           }
                         }}>
                         <div className={`compareButton ${store.compareCars.includes(car) ? 'active' : ''}`}>
-                          -<i class="fa-solid fa-code-compare"></i>
+                          <i class="fa-solid fa-chart-simple"></i>
                         </div>
                       </button>
                     </div>}
