@@ -30,12 +30,12 @@ const LogoutButton = () => {
 
   return (
     <div>
-      <button className='logout'>
+      <button className='logout' style={{ marginRight: '10px' }}>
         <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleLogout}>
           <i className="fa-solid fa-power-off"></i>
         </Link>
       </button>
-    </div>
+    </div >
   );
 };
 

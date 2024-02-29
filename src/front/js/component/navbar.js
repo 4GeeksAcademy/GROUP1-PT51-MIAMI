@@ -33,11 +33,30 @@ export const Navbar = () => {
         <div className="d-flex align-items-center">
           <SearchBar />
           <Filters />
+
         </div>
         <div className="ml-auto d-flex align-items-center">
+        {token && (
+  <>
+    <Link to="/userpage">
+      <button className="navbuttons" style={{ marginRight: '5px' }}>
+        <i className="fa-solid fa-user"></i>
+      </button>
+    </Link>
+    <Link to="/home">
+      <button className="navbuttons" style={{ marginRight: '5px' }}>
+        <i className="fa-solid fa-home"></i>
+      </button>
+    </Link>
+  </>
+)}
+
+
+
           {token ? (
             <LogoutButton />
           ) : (
+
             <div className="d-flex">
               <Link to={"/signup"}>
                 <button className="signup">
@@ -86,8 +105,10 @@ export const Navbar = () => {
                   <li className="nav-item">
                     <Link to={"/"}>
                       <button className="btn navbar">
+
                         <i className="fas fa-home fa-2x"></i>
                       </button>
+
                     </Link>
                   </li>
                   {token ? (
@@ -176,3 +197,4 @@ export const Navbar = () => {
     </nav>
   );
 };
+
