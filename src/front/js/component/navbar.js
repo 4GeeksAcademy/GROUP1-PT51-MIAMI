@@ -22,7 +22,6 @@ export const Navbar = () => {
               style={{ width: "7rem", height: "auto" }}
               alt="Logo"
             />
-
           </Link>
           <Link to="/catalog">
             <button className="btn btn-primary ml-3">
@@ -71,7 +70,7 @@ export const Navbar = () => {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
-                Side Menu
+                Quick Links
               </h5>
               <button
                 type="button"
@@ -81,94 +80,95 @@ export const Navbar = () => {
               ></button>
             </div>
             <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
-                  <Link to={"/"}>
-                    <button className="btn navbar">
-                      <i className="fas fa-home fa-2x"></i>
-
-
-                    </button>
-                  </Link>
-                </li>
-                {token ? (
-                  <div>
-                    <li className="nav-item">
-                      <Link to={"/compare"}>
-                        <button className="btn btn-secondary">
-                          Compare Page
-                        </button>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={"/userpage"}>
-                        <button className="btn btn-secondary">
-                          Profile
-                        </button>
-                      </Link>
-                    </li>
-                    <li className="nav-item dropdown">
-                      {/* "Saved Cars" as a dropdown button */}
-                      <button
-                        className="btn btn-secondary dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        Saved Cars
+              {/* Wrap the Quick Links menu in a new div for styling */}
+              <div className="quick-links-menu">
+                <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li className="nav-item">
+                    <Link to={"/"}>
+                      <button className="btn navbar">
+                        <i className="fas fa-home fa-2x"></i>
                       </button>
-                      <ul
-                        className="dropdown-menu dropdown-menu-dark"
-                        id="drop-down-menu"
-                      >
-                        {store.saved.map((item, index) => {
-                          const car = item.car;
-                          if (store.saved.includes(car))
-                            alert("Car is already added");
-                          else if (!car || !car.car_name) {
-                            return null;
-                          }
-                          console.log("CAR NAME FROM SAVED: ", car.car_name);
-                          return (
-                            <div key={index} style={{ display: "flex" }}>
-                              <li className="carFormatted">
-                                {car.car_name}
-                              </li>
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  if (store.compareCars.includes(car)) {
-                                    return alert("Car already added");
-                                  } else {
-                                    actions.addCarToCompare(car);
-                                  }
-                                }}
-                              >
-                                Compare
-                              </button>
-                              <button
-                                onClick={() => actions.deleteSaved(car.id)}
-                              >
-                                Unsave
-                              </button>
-                            </div>
-                          );
-                        })}
-                        <li>
-                          <hr className="dropdown-divider" />
-                        </li>
+                    </Link>
+                  </li>
+                  {token ? (
+                    <div>
+                      <li className="nav-item">
                         <Link to={"/compare"}>
-                          <li className="dropdown-item" href="#">
-                            <button className="btn btn-success">
-                              Compare selected saved cars (3 MAX.)
-                            </button>
-                          </li>
+                          <button className="btn btn-secondary">
+                            Compare Page
+                          </button>
                         </Link>
-                      </ul>
-                    </li>
-                  </div>
-                ) : (
-                  ""
-                )}
-              </ul>
+                      </li>
+                      <li>
+                        <Link to={"/userpage"}>
+                          <button className="btn btn-secondary">
+                            Profile
+                          </button>
+                        </Link>
+                      </li>
+                      <li className="nav-item dropdown">
+                        {/* "Saved Cars" as a dropdown button */}
+                        <button
+                          className="btn btn-secondary dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                        >
+                          Saved Cars
+                        </button>
+                        <ul
+                          className="dropdown-menu dropdown-menu-dark"
+                          id="drop-down-menu"
+                        >
+                          {store.saved.map((item, index) => {
+                            const car = item.car;
+                            if (store.saved.includes(car))
+                              alert("Car is already added");
+                            else if (!car || !car.car_name) {
+                              return null;
+                            }
+                            console.log("CAR NAME FROM SAVED: ", car.car_name);
+                            return (
+                              <div key={index} style={{ display: "flex" }}>
+                                <li className="carFormatted">
+                                  {car.car_name}
+                                </li>
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    if (store.compareCars.includes(car)) {
+                                      return alert("Car already added");
+                                    } else {
+                                      actions.addCarToCompare(car);
+                                    }
+                                  }}
+                                >
+                                  Compare
+                                </button>
+                                <button
+                                  onClick={() => actions.deleteSaved(car.id)}
+                                >
+                                  Unsave
+                                </button>
+                              </div>
+                            );
+                          })}
+                          <li>
+                            <hr className="dropdown-divider" />
+                          </li>
+                          <Link to={"/compare"}>
+                            <li className="dropdown-item" href="#">
+                              <button className="btn btn-success">
+                                Compare selected saved cars (3 MAX.)
+                              </button>
+                            </li>
+                          </Link>
+                        </ul>
+                      </li>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
